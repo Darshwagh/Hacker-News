@@ -21,7 +21,9 @@
           </nav>
         </header>
         <section class="topstories">          
-          <div class="col-md-12 Storylist" data-ng-repeat="Story in Stories">
+          <div class="col-md-12 Storylist"
+          ng-click="getCommentsForPost(Story.kids)"
+          data-ng-repeat="Story in Stories">
           <span class="score">{{Story.score}}</span>          
             <h5 onclick="openNav()"><b>{{Story.title}}</b></h5><br>
             <p><small>{{Story.by}},<var>{{d}}</var> hours ago</small></p>
@@ -53,11 +55,9 @@
               <h4>Comments</h4>
             </div>
             <div class="col-md-9"></div>
-            <div class="col-md-12">
-              <h6><b>johnhattan ,8hours agro</b></h6>
-              <p>The Gnu Octave page looks pretty good. I was hoping they'd start copying that look everywhere.</p>
-              <p>There was a point where the old empire was advancing on the Foundation only to have their general recalled at the moment of total triumph to prevent the general from taking over power after returning victorious. Also the expansion phase against the barbarian kingdoms wasn't completely bloodless.</p>
-
+            <div class="col-md-12" ng-repeat="comment in allComments">
+              <h6><b>{{comment.by}} ,8hours agro</b></h6>
+              <p>{{comment.text}}</p>
             </div>   
           </div>
         </div>       
